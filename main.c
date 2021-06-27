@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  emu = create_emu(MEMORY_SIZE, 0x0000,0x7c00);
+  emu = create_emu(MEMORY_SIZE, 0x7c00,0x7c00);
 
   binary = fopen(argv[1],"rb");
   if(binary == NULL){
@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     return 1;
   }
 
-  fread(emu->memory, 1, 0x200, binary);
+  fread(emu->memory+0x7c00, 1, 0x200, binary);
   fclose(binary);
 
   init_instructions();

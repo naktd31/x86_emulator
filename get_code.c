@@ -19,3 +19,8 @@ uint32_t get_code32(Emulator* emu, int index)
   }
   return ret;
 }
+
+int32_t get_sign_code32(Emulator* emu, int index)
+{
+  return (int32_t)get_code32(emu, index);
+}
